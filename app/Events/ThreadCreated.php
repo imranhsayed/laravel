@@ -13,15 +13,16 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 class ThreadCreated
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
+    public $thread;
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct( $thread )
     {
-        //
+        $this->thread = $thread;
     }
 
     /**

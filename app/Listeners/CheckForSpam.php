@@ -6,7 +6,7 @@ use App\Events\ThreadCreated;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class NotifySubscribers
+class CheckForSpam
 {
     /**
      * Create the event listener.
@@ -26,6 +26,6 @@ class NotifySubscribers
      */
     public function handle(ThreadCreated $event)
     {
-        var_dump( $event->thread['name'] . ' was published to the form' );
+        var_dump( 'Checking for spam' );
     }
 }
