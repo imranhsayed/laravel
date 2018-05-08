@@ -17,7 +17,15 @@ class AppServiceProvider extends ServiceProvider
     {
         //
 	    view()->composer( 'layouts.sidebar', function ( $view ) {
-	    	$view->with( 'archives', \App\Post::archives() );
+			// Will return all archives data provide it under the var $archives
+	    	$archives = \App\Post::archives();
+		    // Will return all the names of the only tags which have posts associated with them and provide it under the var $tags
+	    	$tags = \App\Tag::has('posts')->pluck( 'name' );
+
+		    // Will make the $archives available to sidebar.blade.php
+	    	$view->with( compact( 'archives' ) );
+		   // Will make $tags available to sidebar.blade.php
+	    	$view->with( compact( 'tags' ) );
 	    } );
     }
 

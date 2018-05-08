@@ -33,6 +33,6 @@ class Post extends Model
 
     public function tags() {
     	// Any post can have many tags and Any tags may be applied to many posts ( many to many relationship )
-	    $this->belongsToMany( Tag::class );
+	    return $this->belongsToMany( Tag::class );
     }
 }

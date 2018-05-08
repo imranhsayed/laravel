@@ -6,13 +6,27 @@
         <p class="blog-post-meta">{{$post->created_at->toFormattedDateString()}} <a href="#">Mark</a></p>
         <p>{{$post->body}}</p>
     </div><!-- /.blog-post -->
+
+    {{--Display Tags--}}
+    @if( count( $post->tags ) )
+        <ul>
+            @foreach( $post->tags as $tag )
+                @php
+                    $tag_name = $tag->name;
+                    $url = url( "/posts/tags/$tag_name" )
+                @endphp
+                <li><a href="{{ $url }}">{{ $tag_name }}</a></li>
+                @endforeach
+        </ul>
+        @endif
+
     {{--Display Comments--}}
     <div class="comments">
         <ul class="list-group">
         @foreach( $post->comments as $comments )
             <li class="list-group-item">
-                <div class="pull-left">{{$comments->body}}</div>
-                <div class="pull-right">{{$comments->created_at->diffForHumans()}}</div>
+                <div class="pull-left">{{ $comments->body }}</div>
+                <div class="pull-right">{{ $comments->created_at->diffForHumans() }}</div>
             </li>
             @endforeach
         </ul>

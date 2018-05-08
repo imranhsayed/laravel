@@ -19,7 +19,7 @@ class CreateTagsTable extends Migration
             $table->timestamps();
         });
 
-	    Schema::create('post_tags', function (Blueprint $table) {
+	    Schema::create('post_tag', function (Blueprint $table) {
 	    	$table->integer( 'post_id' );
 	    	$table->integer( 'tag_id' );
 		    $table->primary( ['post_id', 'tag_id'] ); // ensures that combination of post id and tag id ( e.g. 12 ) should be unique
@@ -34,6 +34,6 @@ class CreateTagsTable extends Migration
     public function down()
     {
         Schema::dropIfExists('tags');
-	    Schema::dropIfExists('post_tags');
+	    Schema::dropIfExists('post_tag');
     }
 }
