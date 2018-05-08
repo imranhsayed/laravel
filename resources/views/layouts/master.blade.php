@@ -22,6 +22,12 @@
 {{--include nav.blade.php here--}}
 @include( 'layouts.nav' )
 
+@if( $flash = session( 'message' ) )
+    <div class="alert alert-success lar-success-message" role="alert">
+        {{ $flash }}
+    </div>
+@endif
+
 @include( 'layouts.header' )
 
 <div class="container">

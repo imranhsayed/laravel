@@ -67,6 +67,9 @@ class PostsController extends Controller
 			'user_id' => auth()->id(), // will get the currently logged in user id
 		] );
 
+		// Sets a session value for 'message' key to 'Thank...' which can then be accessible on the page its redirected to .
+		session()->flash( 'message', 'Your post has been published' );
+
 		// Then redirect it to the home page.
 		$url = url('posts/', $parameters = [], $secure = null);
 		return redirect( $url );

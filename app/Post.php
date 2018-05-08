@@ -30,4 +30,9 @@ class Post extends Model
 		    ->get()       // Get all data
 		    ->toArray();  // convert the object into an array
     }
+
+    public function tags() {
+    	// Any post can have many tags and Any tags may be applied to many posts ( many to many relationship )
+	    $this->belongsToMany( Tag::class );
+    }
 }

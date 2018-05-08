@@ -10415,6 +10415,13 @@ a.text-dark:focus {
   margin-bottom: 0;
 }
 
+.lar-success-message {
+  position: absolute;
+  z-index: 10;
+  bottom: 20px;
+  right: 20px;
+}
+
 .navbar-laravel {
   background-color: #fff;
   -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
